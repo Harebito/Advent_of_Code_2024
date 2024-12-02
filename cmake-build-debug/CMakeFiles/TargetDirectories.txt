@@ -1,3 +1,0 @@
-/home/bito/CLionProjects/Advent_of_Code_2024/cmake-build-debug/CMakeFiles/Advent_of_Code_2024.dir
-/home/bito/CLionProjects/Advent_of_Code_2024/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/bito/CLionProjects/Advent_of_Code_2024/cmake-build-debug/CMakeFiles/rebuild_cache.dir
