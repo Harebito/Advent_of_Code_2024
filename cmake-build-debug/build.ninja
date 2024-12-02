@@ -49,8 +49,14 @@ cmake_ninja_workdir = /home/bito/CLionProjects/Advent_of_Code_2024/cmake-build-d
 
 build cmake_object_order_depends_target_Advent_of_Code_2024: phony || .
 
-build CMakeFiles/Advent_of_Code_2024.dir/main.cpp.o: CXX_COMPILER__Advent_of_Code_2024_unscanned_Debug /home/bito/CLionProjects/Advent_of_Code_2024/main.cpp || cmake_object_order_depends_target_Advent_of_Code_2024
-  DEP_FILE = CMakeFiles/Advent_of_Code_2024.dir/main.cpp.o.d
+build CMakeFiles/Advent_of_Code_2024.dir/Chall_1.cpp.o: CXX_COMPILER__Advent_of_Code_2024_unscanned_Debug /home/bito/CLionProjects/Advent_of_Code_2024/Chall_1.cpp || cmake_object_order_depends_target_Advent_of_Code_2024
+  DEP_FILE = CMakeFiles/Advent_of_Code_2024.dir/Chall_1.cpp.o.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Advent_of_Code_2024.dir
+  OBJECT_FILE_DIR = CMakeFiles/Advent_of_Code_2024.dir
+
+build CMakeFiles/Advent_of_Code_2024.dir/Chall_2.cpp.o: CXX_COMPILER__Advent_of_Code_2024_unscanned_Debug /home/bito/CLionProjects/Advent_of_Code_2024/Chall_2.cpp || cmake_object_order_depends_target_Advent_of_Code_2024
+  DEP_FILE = CMakeFiles/Advent_of_Code_2024.dir/Chall_2.cpp.o.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/Advent_of_Code_2024.dir
   OBJECT_FILE_DIR = CMakeFiles/Advent_of_Code_2024.dir
@@ -63,7 +69,7 @@ build CMakeFiles/Advent_of_Code_2024.dir/main.cpp.o: CXX_COMPILER__Advent_of_Cod
 #############################################
 # Link the executable Advent_of_Code_2024
 
-build Advent_of_Code_2024: CXX_EXECUTABLE_LINKER__Advent_of_Code_2024_Debug CMakeFiles/Advent_of_Code_2024.dir/main.cpp.o
+build Advent_of_Code_2024: CXX_EXECUTABLE_LINKER__Advent_of_Code_2024_Debug CMakeFiles/Advent_of_Code_2024.dir/Chall_1.cpp.o CMakeFiles/Advent_of_Code_2024.dir/Chall_2.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Advent_of_Code_2024.dir
   POST_BUILD = :
