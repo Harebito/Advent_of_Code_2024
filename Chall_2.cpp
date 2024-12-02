@@ -13,52 +13,45 @@ struct Pair{
     int b = 0;
 };
 
-int pair_distance(Pair pair) {
-    return abs(pair.a - pair.b);
+bool distance(Pair p) {
+    return 3 >= abs(p.a - p.b) >= 1;
 }
 
-bool increase_decrease(Pair pair) {
-    if(pair.a > pair.b) {
-        return true;
+bool is_constant(vector<int>* reports) {
+    bool increase = false;
+    bool decrease = false;
+    for(int j = 0; j < reports->size() - 1; j++) {
+        if(reports->at(j) > reports->at(j + 1)) {
+            increase = true;
+        } else if(reports -> at(j) < reports->at(j + 1)) {
+            decrease = true;
+        }
+        if(reports -> at(j) == reports->at(j + 1)) {
+            increase = false;
+            decrease = false;
+            break;
+        }
     }
-    return false;
+    return increase ^ decrease;
 }
 
-// bool is_safe(vector<int> reports) {
-//     Pair pair;
-//     pair.a = reports[0];
-//     pair.b = reports[1];
-//     bool tainted = false;
-//     for(int i = 0; i < reports.size(); i++) {
-//         pair.a = reports[0];
-//         pair.b = reports[1];
-//         while(pair.b < reports.size() - 1) {
-//             if(pair_distance(pair) >3 && pair_distance(pair) < 1 && !increase_decrease(pair)) {
-//                 tainted = true;
-//             }
-//             pair.a++;
-//             pair.b++;
-//         }
-//     }
-//     return tainted;
-// }
-bool is_safe(vector<int> reports) {
-    if (reports.size() < 2) {
-        return false;
-    }
-
+bool is_safe(vector<int>* reports) {
     bool tainted = false;
-    for (size_t i = 0; i < reports.size() - 1; ++i) {
-        Pair pair;
-        pair.a = reports[i];
-        pair.b = reports[i + 1];
-
-        if (pair_distance(pair) > 3 || pair_distance(pair) < 1 || !increase_decrease(pair)) {
+    Pair p;
+    for(int i = 0; i < reports->size() - 1; i++) {
+        p.a = reports->at(i);
+        p.b = reports->at(i + 1);
+        if(!distance(p)) {
             tainted = true;
         }
+
+    }
+    if(!is_constant(reports)) {
+        tainted = true;
     }
     return tainted;
 }
+
 
 int main() {
     ifstream file("T2_data.txt");
@@ -78,7 +71,7 @@ int main() {
         while (iss >> a) {
             reports.push_back(a);
         }
-        if (is_safe(reports)) {
+        if (is_safe(&reports)) {
             correct_arr.push_back(0);
         } else {
             correct_arr.push_back(1);
