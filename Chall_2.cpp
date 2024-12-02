@@ -42,6 +42,17 @@ bool is_safe(vector<int>& reports) {
     return is_constant(reports);
 }
 
+bool can_be_fixed(vector<int>& reports) {
+    for (int i = 0; i < reports.size(); i++) {
+        vector<int> temp = reports;
+        temp.erase(temp.begin() + i);
+        if (is_safe(temp)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 int main() {
     ifstream file("T2_data.txt");
     vector<int> reports;
@@ -63,6 +74,9 @@ int main() {
         if (is_safe(reports)) {
             correct_arr.push_back(1);
             cout << "Safe" << endl;
+        } else if (can_be_fixed(reports)) {
+            correct_arr.push_back(1);
+            cout << "Fixed and Safe" << endl;
         } else {
             correct_arr.push_back(0);
             cout << "Tainted" << endl;
